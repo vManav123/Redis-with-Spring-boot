@@ -12,17 +12,20 @@ Let's start by declaring the Spring Data Redis dependencies in the pom.xml:
 
 ```javascript
 <dependency>
-    <groupId>org.springframework.data</groupId>
-    <artifactId>spring-data-redis</artifactId>
-    <version>2.3.3.RELEASE</version>
- </dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>io.lettuce</groupId>
+            <artifactId>lettuce-core</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
  ```
 ```javascript
 <dependency>
     <groupId>redis.clients</groupId>
     <artifactId>jedis</artifactId>
-    <version>3.3.0</version>
-    <type>jar</type>
 </dependency>
 ```
 The latest versions of spring-data-redis and jedis can be downloaded from Maven Central.
